@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,4 +33,7 @@ Route::get('get-wishlist-products/{id}', [WishlistController::class, 'getProduct
 Route::post('addProductToWishlist', [ProductController::class, 'addProductToWishlist']);
 
 Route::delete('delete-product-from-cart', [ProductController::class, 'deleteFromCart']);
-Route::get('delete-product-from-wishlist', [ProductController::class, 'deleteFromWishlist']);
+Route::delete('delete-product-from-wishlist', [ProductController::class, 'deleteFromWishlist']);
+
+Route::get('get-orders/{id}', [UserController::class, 'getOrders']);
+Route::post('add-order', [orderController::class, 'addOrder']);

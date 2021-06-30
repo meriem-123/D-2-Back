@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Order;
 use Illuminate\Support\facades\Hash;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\WishlistController;
@@ -38,15 +39,9 @@ class UserController extends Controller
 
         return $user;
     }
-
-    function addWishlist(){
-        $wishlist= new Wishlist;
-
-        $product->name = $req->input('name');
-
-        $product->save();
-
-        return $product;
-    }
     
+    function getOrders($user_id) {
+        
+        return $orders = User::find($user_id)->orders;
+    }
 }
